@@ -302,7 +302,7 @@ message ModuleConfig {
    */
   message SerialConfig {
     /*
-     * TODO: REPLACE
+     * Serial Baud rates
      */
     enum Serial_Baud {
       BAUD_DEFAULT = 0;
@@ -324,7 +324,7 @@ message ModuleConfig {
     }
 
     /*
-     * Formats for the Serial
+     * Serial format
      */
     enum Serial_Format {
       FORMAT_DEFAULT = 0;
@@ -370,6 +370,8 @@ message ModuleConfig {
       // VE.Direct is a serial protocol used by Victron Energy products
       // https://beta.ivc.no/wiki/index.php/Victron_VE_Direct_DIY_Cable
       VE_DIRECT = 7;
+      // Modbus RTU protocol
+      MODBUS_RTU = 8;
     }
 
     /*
@@ -415,14 +417,32 @@ message ModuleConfig {
     bool override_console_serial_port = 8;
 
     /*
-     * Serial format
+     * Format for serial module operation
      */
     Serial_Format format = 9;
 
     /*
-     * Direction control pin for RS-485 transceiver
+     * Skip Acknowledgement for serial messages
      */
-     uint32 rs485_direction = 10;
+    bool skip_ack = 10;
+
+    /*
+     * Driver output enable pin for RS-485 transceiver
+     */
+    uint32 rs485_de = 11;
+
+    /*
+     * Receiver enable pin for RS-485 transceiver
+     */
+    uint32 rs485_re = 12;
+
+    /*
+     * Modbus RTU response timeout in milliseconds
+     * This is used when the Serial module is in Modbus RTU mode
+     * and defines how long the node will wait for a response after sending a request
+     * if not set, it will default broadcast frame to all nodes
+     */
+    uint32 modbus_rtu_response_timeout = 13;
   }
 
   /*
