@@ -2,8 +2,8 @@ name: Publish to Cargo & JSR
 
 on:
   push:
-    # tags:
-    #   - "**"
+    tags:
+      - "*"
 
 permissions: write-all
 
@@ -19,8 +19,8 @@ jobs:
         run: |
           BRANCH=$(echo $GITHUB_REF | awk -F'/' '{print $3}')
           COMMIT=$(git rev-parse --short HEAD)
-          sed -i "s/__PACKAGE_VERSION__/${BRANCH}.${COMMIT}/g" packages/ts/deno.json
-          sed -i "s/__PACKAGE_VERSION__/${BRANCH}.${COMMIT}/g" packages/rust/Cargo.toml
+          sed -i "s/__PACKAGE_VERSION__/2.6.11-${BRANCH}.${COMMIT}/g" packages/ts/deno.json
+          sed -i "s/__PACKAGE_VERSION__/2.6.11-${BRANCH}.${COMMIT}/g" packages/rust/Cargo.toml
       - name: Setup Buf
         uses: bufbuild/buf-setup-action@main
         with:
