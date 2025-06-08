@@ -1,5 +1,5 @@
 {
-  "name": "@meshtastic/protobufs",
+  "name": "@fobe/meshtastic-protobufs",
   "version": "__PACKAGE_VERSION__",
   "exports": {
     ".": "./mod.ts"
