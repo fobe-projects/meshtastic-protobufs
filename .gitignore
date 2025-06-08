@@ -1,1 +1,5 @@
-.DS_Store
+packages/ts/lib/*
+packages/rust/src/generated/*
+packages/rust/target
+packages/c/*
+!.gitkeep
