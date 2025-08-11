@@ -781,6 +781,12 @@ enum HardwareModel {
   HELTEC_MESH_SOLAR = 108;
 
   /*
+   * IDEA Mesh Tracker C1
+   * https://docs.fobestudio.com/product/f2102
+   */
+  FOBE_IDEA_MESH_TRACKER_C1 = 109;
+
+  /*
    * ------------------------------------------------------------------------------------------------------------------------------------------
    * Reserved ID For developing private Ports. These will show up in live traffic sparsely, so we can use a high number. Keep it within 8 bits.
    * ------------------------------------------------------------------------------------------------------------------------------------------
